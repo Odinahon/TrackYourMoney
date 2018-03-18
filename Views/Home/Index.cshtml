@@ -1,0 +1,32 @@
+﻿@model BankAccounts.Models.RegisterViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h3>Please Register</h3>
+<form action="adduser" method="post">
+    <span asp-validation-for="FirstName"></span>
+    <label asp-for="FirstName"></label>
+    <input asp-for="FirstName"><br>
+    <span asp-validation-for="LastName"></span>
+    <label asp-for="LastName"></label>
+    <input asp-for="LastName"><br>
+    <span asp-validation-for="Email"></span><span>@ViewBag.ErrorRegister</span>
+    <label asp-for="Email"></label>
+    <input asp-for="Email"><br>
+    <span asp-validation-for="Password"></span>
+    <label asp-for="Password"></label>
+    <input asp-for="Password"><br>
+    <span asp-validation-for="PasswordConfirmation"></span>
+    <label asp-for="PasswordConfirmation"></label>
+    <input asp-for="PasswordConfirmation"><br>
+    <button type="submit">Register</button>
+   <a href="login">Already Registered?</a>
+</form>
+
+
+
+
+
+
+
+

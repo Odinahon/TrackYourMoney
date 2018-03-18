@@ -1,0 +1,45 @@
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+@model BankAccounts.Models.User
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h3>Welcome, @ViewBag.UserName </h3>
+<a href="/logout">Logout</a>
+<p>Current balance: @Model.Balance</p>
+
+<form action="account" method="post">
+<p>Deposit/ Withdraw: </p>
+<select name="accountaction" id="">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="-1">-1</option>
+    <option value="-2">-2</option>
+    <option value="-3">-3</option>
+</select>
+<button>Submit</button>
+
+</form>
+<p>@ViewBag.moneyerror</p>
+<table style="width:30%">
+  <tr>
+    <th>Amount</th>
+    <th>Date</th>
+  </tr>
+  @foreach(var trans in @Model.TransactionsIMade)
+  {
+  <tr>
+   <td>@trans.Amount</td>
+   <td>@Model.UpdatedAt.ToString("MMM dd yyyy")</td>
+   </tr>
+  }
+    
+  
+</table>
+
